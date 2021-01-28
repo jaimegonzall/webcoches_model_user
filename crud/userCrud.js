@@ -1,21 +1,25 @@
 'use strict';
-
+require("../index.js");
 const users = require("../models/user");
 
-userCrudFunctions = [];
+let userCrudFunctions = [];
 
-userCrudFunctions.createNewUser = (name, surname, userName, password, email,
-    avatar, membership="Free", membershipExpirationDate=Date.now) =>{
-    const newUser = users.create({name, surname, userName, password, email,avatar,membership,
+userCrudFunctions.createNewUser = async (name, surname, userName, password, email,
+    avatar, membership="Free", membershipExpirationDate) =>{
+    const newUser = new users({name, surname, userName, password, email,avatar,membership,
     membershipExpirationDate });
-    newUser.save();
+    await newUser.save();
     console.log(newUser);
 };
 
-userCrudFunctions.findAllUsers = () =>{
-    const allUsers = users.find();
+userCrudFunctions.findAllUsers = async () =>{
+    const allUsers = await users.find();
     console.log(allUsers);
 };
 
+/* userCrudFunctions.createNewUser("Paco", "Martínez Fdez.", "pacomartinez", "123456*", "paco@gmail.com");
+ */
+
+userCrudFunctions.findAllUsers();
 
 module.exports = userCrudFunctions;

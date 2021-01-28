@@ -20,7 +20,8 @@
   "homepage": "https://github.com/jaimegonzall/webcoches_model_user#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "mongoose": "^5.11.13"
+    "mongoose": "^5.11.13",
+    "morgan": "^1.10.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.7"
