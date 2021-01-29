@@ -1,5 +1,5 @@
 'use strict';
-require("../index.js");
+
 const Users = require("../models/User");
 
 let userCrudFunctions = [];
@@ -15,12 +15,13 @@ userCrudFunctions.createNewUser = async (name, surname, userName, password, emai
 userCrudFunctions.findAllUsers = async () =>{
     const allUsers = await Users.find().lean();
     console.log(allUsers);
+    return allUsers
 };
 
 userCrudFunctions.findUserById = async (id) =>{
     const userFind = await Users.findById(id).lean();
     console.log(userFind);
-}
+};
 
 
 userCrudFunctions.deleteUserById = async (id) =>{
@@ -34,13 +35,13 @@ userCrudFunctions.updateUserById = async (id, name, surname, userName, password,
 };
 
 
-/*
-userCrudFunctions.createNewUser("Encarna", "Glez. Hernández", "Marglez1", "123456", "afdasfrehnsrt4@gmail.com");
-userCrudFunctions.createNewUser("Jaime", "Glez. Hernández", "Panteneglez1", "123456", "alfasdst4@gmail.com");
-userCrudFunctions.createNewUser("Cristian", "Glez. Hernández", "Karglez1", "123456", "fdfdast4@gmail.com");
-userCrudFunctions.createNewUser("Lito Yayo", "Glez. Hernández", "yayoglez1", "123456", "alfdffdst4@gmail.com");
-*/
-/* userCrudFunctions.findAllUsers(); */
+
+// userCrudFunctions.createNewUser("Encarna", "Glez. Hernández", "Marglez1", "123456", "afdasfrehnsrt4@gmail.com");
+// userCrudFunctions.createNewUser("Jaime", "Glez. Hernández", "Panteneglez1", "123456", "alfasdst4@gmail.com");
+// userCrudFunctions.createNewUser("Cristian", "Glez. Hernández", "Karglez1", "123456", "fdfdast4@gmail.com");
+// userCrudFunctions.createNewUser("Lito Yayo", "Glez. Hernández", "yayoglez1", "123456", "alfdffdst4@gmail.com");
+
+//  userCrudFunctions.findAllUsers(); 
 
 /* userCrudFunctions.findUserById("6013c9461abe6b5d08263f55"); */
 
@@ -50,4 +51,4 @@ userCrudFunctions.createNewUser("Lito Yayo", "Glez. Hernández", "yayoglez1", "1
 
 
 
-module.exports = userCrudFunctions;
+module.exports = {userCrudFunctions};
