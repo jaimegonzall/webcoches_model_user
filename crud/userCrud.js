@@ -1,36 +1,35 @@
 'use strict';
 
-const Users = require("../models/User");
+const User = require("../models/User");
 
 let userCrudFunctions = [];
 
-userCrudFunctions.createNewUser = async (name, surname, userName, password, email,
-    avatar, membership="Free", membershipExpirationDate) =>{
-    const newUser = new Users({name, surname, userName, password, email,avatar,membership,
-    membershipExpirationDate });
-    await newUser.save();
-    console.log(newUser);
-};
+// userCrudFunctions.createNewUser = async (name, surname, userName, password, email,
+//     avatar, membership="Free", membershipExpirationDate) =>{
+//     const newUser = new User({name, surname, userName, password, email,avatar,membership,
+//     membershipExpirationDate });
+//     await newUser.save();
+//     console.log(newUser);
+// };
 
-userCrudFunctions.findAllUsers = async () =>{
-    const allUsers = await Users.find().lean();
-    console.log(allUsers);
-    return allUsers
-};
+// userCrudFunctions.findAllUsers = async () =>{
+//     const usersList = await User.find().lean();
+//     return usersList
+// };
 
-userCrudFunctions.findUserById = async (id) =>{
-    const userFind = await Users.findById(id).lean();
-    console.log(userFind);
-};
+// userCrudFunctions.findUserById = async (id) =>{
+//     const userFind = await User.findById(id).lean();
+//     console.log(userFind);
+// };
 
 
 userCrudFunctions.deleteUserById = async (id) =>{
-    const deletedUser = await Users.findByIdAndDelete(id).lean();
+    const deletedUser = await User.findByIdAndDelete(id).lean();
     console.log(deletedUser + " ha sido borrado");
 };
 
 userCrudFunctions.updateUserById = async (id, name, surname, userName, password, email, avatar) =>{
-    const userUpdated = await Users.findOneAndUpdate({_id: id}, {name, surname, userName, password, email, avatar}, {new: true}).lean();
+    const userUpdated = await User.findOneAndUpdate({_id: id}, {name, surname, userName, password, email, avatar}, {new: true}).lean();
     console.log(userUpdated);
 };
 

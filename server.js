@@ -7,7 +7,7 @@ const userRouter = require("./routes/usersRoutes");
 const app = express();
 
 const port = 3000;
-app.listen(port, console.log("Conectado!"));
+app.listen(port, console.log("Conectado a: http://localhost:3000/"));
 
 app.use(express.static("public"));
 app.use(morgan("dev"));
