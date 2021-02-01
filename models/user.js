@@ -38,7 +38,7 @@ const userSchema = new Schema ({
 
     avatar : {
         type: String,
-        default : ""
+        default :"./img/profile.png"
     },
 
     membership: {

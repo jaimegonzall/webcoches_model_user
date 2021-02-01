@@ -1,9 +1,35 @@
 <h1>formulario nuevo usuario</h1>
 
 <form action="/newUser" method="post" id="formNewUser">
+    <fieldset>
+        {{>atoms/legend texto="Datos personales"}}
+        {{>atoms/label labelFor="name" text="Nombre:"}}
+        {{>atoms/input type="text" inputName="name" inputPlaceholder="Nombre"}}
 
-
-
-
-    
+        <label for="surname">Apellidos:</label>
+        <input type="text" name="surname" placeholder="Apellidos">
+    </fieldset>
+    <fieldset>
+        <legend>Datos login</legend>
+        <label for="userName">Nombre de usuario:</label>
+        <input type="text" name="userName" placeholder="Nombre de usuario" >
+        <label for="password">Contraseña:</label>
+        <input type="text" name="password" placeholder="Contraseña">
+        <label for="avatar">Avatar</label>
+        <input type="file" name="avatar">
+    </fieldset>
+    <fieldset>
+        <legend>Datos contacto</legend>
+        <label for="email">Correo electrónico:</label>
+        <input type="email" name="email" placeholder="Correo electrónico" >
+    </fieldset>
+    <input type="submit" value="Crear usuario">    
 </form>
+
+{{#if user}}
+    <ul>
+        <li>{{this.name}}</li>
+        <li>{{this.surname}}</li>
+        <li>{{this.avatar}}</li>
+    </ul>
+{{/if}}

@@ -17,8 +17,7 @@ usersController.newUser = (req, res) => {
                 console.error(`Error en usersController.newUser.save: ${error}`);
                 return
             };
-
-            res.json(newUser, "ggg");
+            res.redirect("/userById/"+newUser._id);
         });
         return
     }
