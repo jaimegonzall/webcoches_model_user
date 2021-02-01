@@ -1,12 +1,11 @@
 'use strict';
 
-const { userCrudFunctions } = require("../crud/userCrud");
 const User = require("../models/User");
 
 let usersController = [];
 
 usersController.newUserform = (req, res) => {
-    res.send("Formulario nuevo usuario")
+    res.render("templates/formNewUser")
 };
 
 usersController.newUser = (req, res) => {
@@ -43,6 +42,29 @@ usersController.findUserById = (req, res) =>{
     };
     res.send("Búsqueda por id");
 };
+
+
+usersController.deleteUserById = (req, res) =>{
+    const idBusqueda = req.param.id;
+    if(req.params.id){
+        User.findByIdAndDelete({_id: idBusqueda}).lean().
+            then(user => res.json(user)).
+            catch(error => console.log(`Error en CRUD deleteUserById: ${error}`));
+        return
+        };
+    res.send("Borrado por ID");
+};
+
+
+usersController.updateUserById = (req, res) =>{
+    const {name, surname, userName, password, email, avatar} = req.body;
+    User.findOneAndUpdate({_id: req.params.id}, {name, surname, userName, password, email, avatar}, {new: true}).lean()
+        .then(user => res.json(user))
+        .catch(error => console.log(`Error en CRUD updateUserById: ${error}`));
+
+};
+
+
 
 
 module.exports = usersController;
