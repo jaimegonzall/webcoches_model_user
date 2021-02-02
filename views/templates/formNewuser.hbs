@@ -5,18 +5,18 @@
         {{>atoms/legend texto="Datos personales"}}
         {{>atoms/label labelFor="name" text="Nombre:"}}
         {{>atoms/input type="text" inputName="name" inputPlaceholder="Nombre"}}
-
-        <label for="surname">Apellidos:</label>
-        <input type="text" name="surname" placeholder="Apellidos">
+        {{>atoms/label labelFor="surname" text="Apellidos:"}}
+        {{>atoms/input type="text" inputName="surname" inputPlaceholder="Apellidos"}}
     </fieldset>
     <fieldset>
-        <legend>Datos login</legend>
-        <label for="userName">Nombre de usuario:</label>
-        <input type="text" name="userName" placeholder="Nombre de usuario" >
-        <label for="password">Contraseña:</label>
-        <input type="text" name="password" placeholder="Contraseña">
-        <label for="avatar">Avatar</label>
+        {{>atoms/legend texto="Datos login"}}
+        {{>atoms/label labelFor="userName" text="Nombre de usuario:"}}
+        {{>atoms/input type="text" inputName="username" inputPlaceholder="Nombre de usuario"}}
+        {{>atoms/label labelFor="password" text="Contraseña:"}}
+        {{>atoms/input type="text" inputName="password" inputPlaceholder="Contraseña"}}
+>       {{>atoms/label labelFor="avatar" text="Avatar:"}}
         <input type="file" name="avatar">
+
     </fieldset>
     <fieldset>
         <legend>Datos contacto</legend>
