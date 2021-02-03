@@ -23,4 +23,5 @@ app.use(morgan("dev"));
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 app.use(userRouter);
+app.use(express.static("public"));
 module.export = app;

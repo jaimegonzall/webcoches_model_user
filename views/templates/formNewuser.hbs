@@ -9,26 +9,32 @@
 <form action="/newUser" method="post" id="formNewUser">
     <fieldset>
         {{>atoms/legend texto="Datos personales"}}
-        {{>atoms/label labelFor="name" text="Nombre:"}}
-        {{>atoms/input type="text" inputName="name" inputPlaceholder="Nombre"}}
+
+        {{>atoms/label labelFor="name" text="Nombre:" }}
+        {{>atoms/input  type="text" inputName="name" inputPlaceholder="Nombre" required="required"}}
+
         {{>atoms/label labelFor="surname" text="Apellidos:"}}
-        {{>atoms/input type="text" inputName="surname" inputPlaceholder="Apellidos"}}
+        {{>atoms/input type="text" inputName="surname" inputPlaceholder="Apellidos" required="required"}}
     </fieldset>
     <fieldset>
         {{>atoms/legend texto="Datos login"}}
+
         {{>atoms/label labelFor="userName" text="Nombre de usuario:"}}
-        {{>atoms/input type="text" inputName="userName" inputPlaceholder="Nombre de usuario"}}
+        {{>atoms/input inputId="userNameId" type="text" inputName="userName" inputPlaceholder="Nombre de usuario" required="required"}}
+
         {{>atoms/label labelFor="password" text="Contraseña:"}}
-        {{>atoms/input type="text" inputName="password" inputPlaceholder="Contraseña"}}
+        {{>atoms/input type="text" inputName="password" inputPlaceholder="Contraseña" inputMinLength = "6"}}
+
         {{>atoms/label labelFor="avatar" text="Avatar:"}}
         {{>atoms/input type="file" inputName="avatar"}}
     </fieldset>
     <fieldset>
         {{>atoms/legend texto="Datos contacto"}}
+
         {{>atoms/label labelFor="email" text="Correo electrónico"}}
-        {{>atoms/input type="email" inputName="email" inputPlaceholder="Correo electrónico"}}
+        {{>atoms/input type="email" inputName="email" inputPlaceholder="Correo electrónico" required="required"}}
     </fieldset>
-    {{>atoms/button btnType="submit" btnValue="Crear usuario"}}  
+    {{>atoms/button btnId="btnForm" btnType="submit" btnValue="Crear usuario"}}  
 </form>
 
 {{#if user}}
