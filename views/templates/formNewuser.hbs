@@ -1,5 +1,11 @@
 <h1>formulario nuevo usuario</h1>
 
+{{#if error}}
+    <h2>{{error}}</h2>
+{{/if}}
+
+
+
 <form action="/newUser" method="post" id="formNewUser">
     <fieldset>
         {{>atoms/legend texto="Datos personales"}}
@@ -11,19 +17,18 @@
     <fieldset>
         {{>atoms/legend texto="Datos login"}}
         {{>atoms/label labelFor="userName" text="Nombre de usuario:"}}
-        {{>atoms/input type="text" inputName="username" inputPlaceholder="Nombre de usuario"}}
+        {{>atoms/input type="text" inputName="userName" inputPlaceholder="Nombre de usuario"}}
         {{>atoms/label labelFor="password" text="Contraseña:"}}
         {{>atoms/input type="text" inputName="password" inputPlaceholder="Contraseña"}}
->       {{>atoms/label labelFor="avatar" text="Avatar:"}}
-        <input type="file" name="avatar">
-
+        {{>atoms/label labelFor="avatar" text="Avatar:"}}
+        {{>atoms/input type="file" inputName="avatar"}}
     </fieldset>
     <fieldset>
-        <legend>Datos contacto</legend>
-        <label for="email">Correo electrónico:</label>
-        <input type="email" name="email" placeholder="Correo electrónico" >
+        {{>atoms/legend texto="Datos contacto"}}
+        {{>atoms/label labelFor="email" text="Correo electrónico"}}
+        {{>atoms/input type="email" inputName="email" inputPlaceholder="Correo electrónico"}}
     </fieldset>
-    <input type="submit" value="Crear usuario">    
+    {{>atoms/button btnType="submit" btnValue="Crear usuario"}}  
 </form>
 
 {{#if user}}
